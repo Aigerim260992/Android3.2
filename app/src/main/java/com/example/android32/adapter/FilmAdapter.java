@@ -56,7 +56,13 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.FilmViewHolder
             binding.titleFilm.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    listener.onTitleClick(getAdapterPosition());
+                    listener.onTitleClick(filmsList.get(getAdapterPosition()));
+                }
+            });
+            binding.btnSave.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onSaveClick(getAdapterPosition());
                 }
             });
         }
@@ -67,7 +73,9 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.FilmViewHolder
     }
 
     public interface Listener {
-        void onTitleClick(int position);
+        void onTitleClick(Film film);
+        void onSaveClick(int pos);
+
     }
 
 

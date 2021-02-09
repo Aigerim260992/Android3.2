@@ -1,4 +1,4 @@
-package com.example.android32;
+package com.example.android32.ui;
 
 import android.util.Log;
 

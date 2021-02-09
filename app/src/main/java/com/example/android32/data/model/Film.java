@@ -1,48 +1,57 @@
 package com.example.android32.data.model;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
+
+import com.example.android32.data.local.ListConverter;
+import com.example.android32.data.local.ObjectConverter;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+
+@Entity(tableName = "films")
 public class Film {
+    @PrimaryKey
     @SerializedName("id")
-
+    @NonNull
     private String id;
+
     @SerializedName("title")
-
     private String title;
+
     @SerializedName("description")
-
     private String description;
+
     @SerializedName("director")
-
     private String director;
+
     @SerializedName("producer")
-
     private String producer;
-    @SerializedName("release_date")
 
+    @SerializedName("release_date")
     private String releaseDate;
     @SerializedName("rt_score")
-
     private String rtScore;
     @SerializedName("people")
-
+    @TypeConverters({ListConverter.class})
     private List<String> people = null;
     @SerializedName("species")
-
+    @TypeConverters({ListConverter.class})
     private List<String> species = null;
     @SerializedName("locations")
-
+    @TypeConverters({ListConverter.class})
     private List<String> locations = null;
     @SerializedName("vehicles")
-
+    @TypeConverters({ListConverter.class})
     private List<String> vehicles = null;
     @SerializedName("url")
 
     private String url;
     @SerializedName("length")
-
+    @TypeConverters({ObjectConverter.class})
     private Object length;
 
     public String getId() {
@@ -104,8 +113,6 @@ public class Film {
     public List<String> getPeople() {
         return people;
     }
-
-
 
 
     public void setPeople(List<String> people) {

@@ -1,4 +1,4 @@
-package com.example.android32;
+package com.example.android32.ui;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
